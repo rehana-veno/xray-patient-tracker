@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>X-Ray Patient Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">HEALTH SERVICES • HACKATHON PROJECT</p>
+      <h1>X-Ray Patient Tracker</h1>
+      <p class="subtitle">A simple dashboard for tracking appointments, X-ray scans, and report status.</p>
+    </div>
+    <span class="badge">Demo Mode</span>
+  </header>
+
+  <main class="container">
+    <section class="stats" aria-label="Dashboard statistics">
+      <div class="stat-card"><span>Total Patients</span><strong id="totalPatients">0</strong></div>
+      <div class="stat-card"><span>Scheduled</span><strong id="scheduledCount">0</strong></div>
+      <div class="stat-card"><span>Scanned</span><strong id="scannedCount">0</strong></div>
+      <div class="stat-card"><span>Reports Ready</span><strong id="readyCount">0</strong></div>
+    </section>
+
+    <section class="panel form-panel">
+      <div class="section-head">
+        <div>
+          <h2>Add Patient Record</h2>
+          <p>Use fictional/demo information only.</p>
+        </div>
+      </div>
+      <form id="patientForm" class="form-grid">
+        <label>Patient Name<input id="name" type="text" maxlength="60" placeholder="e.g. Aisha Khan" required /></label>
+        <label>Patient ID<input id="patientId" type="text" maxlength="20" placeholder="e.g. XR-1042" required /></label>
+        <label>Appointment Date<input id="date" type="date" required /></label>
+        <label>X-Ray Type
+          <select id="xrayType" required>
+            <option value="Chest X-Ray">Chest X-Ray</option>
+            <option value="Hand X-Ray">Hand X-Ray</option>
+            <option value="Knee X-Ray">Knee X-Ray</option>
+            <option value="Spine X-Ray">Spine X-Ray</option>
+            <option value="Dental X-Ray">Dental X-Ray</option>
+          </select>
+        </label>
+        <label>Status
+          <select id="status" required>
+            <option value="Scheduled">Scheduled</option>
+            <option value="Scanned">Scanned</option>
+            <option value="Report Ready">Report Ready</option>
+          </select>
+        </label>
+        <button class="primary" type="submit">+ Add Record</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="section-head row-wrap">
+        <div>
+          <h2>Patient Records</h2>
+          <p>Search and filter demo records.</p>
+        </div>
+        <div class="tools">
+          <input id="search" type="search" placeholder="Search name or ID..." aria-label="Search records" />
+          <select id="filter" aria-label="Filter by status">
+            <option value="All">All Statuses</option>
+            <option value="Scheduled">Scheduled</option>
+            <option value="Scanned">Scanned</option>
+            <option value="Report Ready">Report Ready</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Patient</th><th>ID</th><th>Date</th><th>X-Ray</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody id="recordsBody"></tbody>
+        </table>
+        <div id="emptyState" class="empty">No records found.</div>
+      </div>
+    </section>
+
+    <section class="panel impact">
+      <h2>Why this helps</h2>
+      <div class="impact-grid">
+        <div><strong>Less confusion</strong><p>Keeps appointment and scan information in one place.</p></div>
+        <div><strong>Faster tracking</strong><p>Makes it easier to see whether a scan is scheduled, completed, or ready for reporting.</p></div>
+        <div><strong>Better workflow</strong><p>Gives staff a quick overview of pending and completed patient records.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Hackathon prototype • Fictional demo data only • Not for real medical records</footer>
+  <script src="script.js"></script>
+</body>
+</html>
